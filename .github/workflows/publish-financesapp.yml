@@ -1,0 +1,39 @@
+name: Publish FinancesApp update payload
+
+on:
+  push:
+    paths:
+      - '.github/workflows/publish-financesapp.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download FinancesApp build 66
+        env:
+          ARTIFACT_URL: 'https://sdmntprbrazilsouth.oaiusercontent.com/files/00000000-a18c-820e-abdc-306a24e1bf97/raw?se=2026-09-12T01%3A44%3A51Z&sp=r&sv=2026-02-06&sr=b&scid=4b5e2d53-3286-5708-9670-be3137b86ae1&skoid=127c13cb-e695-43ea-b6b2-0a863d41dbf7&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-11T12%3A04%3A38Z&ske=2026-09-12T12%3A04%3A38Z&sks=b&skv=2026-02-06&sig=zaDW06ZiV98cVkUiyhchnQVWpx2JcXgEVcGg6TzP36E%3D'
+        run: |
+          curl -fL "$ARTIFACT_URL" -o /tmp/finances.zip
+          rm -rf /tmp/finances && mkdir -p /tmp/finances
+          unzip -o /tmp/finances.zip -d /tmp/finances
+          mkdir -p financesapp-updates
+          cp /tmp/finances/FinancesApp-debug.apk financesapp-updates/FinancesApp.apk
+          cat > financesapp-updates/update.json <<'EOF'
+          {
+            "versionCode": 66,
+            "versionName": "1.2.66",
+            "apkUrl": "https://raw.githubusercontent.com/ReinaldoAG/ReinaldoAG/main/financesapp-updates/FinancesApp.apk",
+            "notes": "Actualización interna de FinancesApp"
+          }
+          EOF
+      - name: Commit public updater payload
+        run: |
+          git config user.name "FinancesApp Updater"
+          git config user.email "actions@github.com"
+          git add financesapp-updates/FinancesApp.apk financesapp-updates/update.json
+          git commit -m "Publish FinancesApp v1.2.66" || exit 0
+          git push
