@@ -14,9 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Download FinancesApp build 67
+      - name: Download FinancesApp build 69
         env:
-          ARTIFACT_URL: 'https://sdmntprbrazilsouth.oaiusercontent.com/files/00000000-f3e0-820e-a436-17181e39cd25/raw?se=2026-09-12T01%3A48%3A55Z&sp=r&sv=2026-02-06&sr=b&scid=31d015ba-d1e4-537f-92b0-a871bdd71ac5&skoid=127c13cb-e695-43ea-b6b2-0a863d41dbf7&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-11T09%3A41%3A27Z&ske=2026-09-12T09%3A41%3A27Z&sks=b&skv=2026-02-06&sig=JHtSPJaA/CmQdIkU0xftKWNJ3tcFLSSMWvLsr1WUMJo%3D'
+          ARTIFACT_URL: 'https://sdmntprbrazilsouth.oaiusercontent.com/files/00000000-e128-820e-8b51-6de8b95fede3/raw?se=2026-09-12T03%3A04%3A13Z&sp=r&sv=2026-02-06&sr=b&scid=535ad882-2331-5251-ba5f-010d148f82d8&skoid=127c13cb-e695-43ea-b6b2-0a863d41dbf7&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-11T11%3A43%3A32Z&ske=2026-09-12T11%3A43%3A32Z&sks=b&skv=2026-02-06&sig=pd%2BIu2v7UiJ1/8oreQ7hTOY3UTThLbBRdmvBseFnhus%3D'
         run: |
           curl -fL "$ARTIFACT_URL" -o /tmp/finances.zip
           rm -rf /tmp/finances && mkdir -p /tmp/finances
@@ -25,10 +25,10 @@ jobs:
           cp /tmp/finances/FinancesApp-debug.apk financesapp-updates/FinancesApp.apk
           cat > financesapp-updates/update.json <<'EOF'
           {
-            "versionCode": 67,
-            "versionName": "1.2.67",
+            "versionCode": 69,
+            "versionName": "1.2.69",
             "apkUrl": "https://raw.githubusercontent.com/ReinaldoAG/ReinaldoAG/main/financesapp-updates/FinancesApp.apk",
-            "notes": "Actualización interna de FinancesApp"
+            "notes": "Calendario de ingresos por día y métrica de plata generada"
           }
           EOF
       - name: Commit public updater payload
@@ -36,5 +36,5 @@ jobs:
           git config user.name "FinancesApp Updater"
           git config user.email "actions@github.com"
           git add financesapp-updates/FinancesApp.apk financesapp-updates/update.json
-          git commit -m "Publish FinancesApp v1.2.67" || exit 0
+          git commit -m "Publish FinancesApp v1.2.69" || exit 0
           git push
