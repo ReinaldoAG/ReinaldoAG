@@ -1,6 +1,6 @@
 {
-  "versionCode": 75,
-  "versionName": "1.2.75",
+  "versionCode": 77,
+  "versionName": "1.2.77",
   "apkUrl": "https://raw.githubusercontent.com/ReinaldoAG/ReinaldoAG/main/financesapp-updates/FinancesApp.apk",
-  "notes": "Horas y minutos legibles y progreso con efectivo más ganancias por cobrar"
+  "notes": "Separa gastos ya pagados de obligaciones futuras y evita cobrarlos dos veces"
 }
