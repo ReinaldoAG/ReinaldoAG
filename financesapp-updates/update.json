@@ -1,6 +1,6 @@
 {
-  "versionCode": 77,
-  "versionName": "1.2.77",
+  "versionCode": 80,
+  "versionName": "1.2.80",
   "apkUrl": "https://raw.githubusercontent.com/ReinaldoAG/ReinaldoAG/main/financesapp-updates/FinancesApp.apk",
-  "notes": "Separa gastos ya pagados de obligaciones futuras y evita cobrarlos dos veces"
+  "notes": "Muestra siempre la versión instalada y evita restaurar una interfaz vieja del WebView"
 }
