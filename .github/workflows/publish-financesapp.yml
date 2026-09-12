@@ -14,9 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Download FinancesApp build 75
+      - name: Download FinancesApp build 77
         env:
-          ARTIFACT_URL: 'https://sdmntprbrazilsouth.oaiusercontent.com/files/00000000-23d8-820e-a90e-3fa80002eae7/raw?se=2026-09-12T13%3A03%3A05Z&sp=r&sv=2026-02-06&sr=b&scid=b7bf441c-4cea-5631-a26c-83cfe84ee4f9&skoid=127c13cb-e695-43ea-b6b2-0a863d41dbf7&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-12T12%3A27%3A30Z&ske=2026-09-13T12%3A27%3A30Z&sks=b&skv=2026-02-06&sig=%2B9G7BvlGHamfldQneSdeyOjQbIGw0z%2BcGw05hJ7TixA%3D'
+          ARTIFACT_URL: 'https://sdmntprbrazilsouth.oaiusercontent.com/files/00000000-87dc-820e-86ed-a5fe82750606/raw?se=2026-09-12T13%3A22%3A29Z&sp=r&sv=2026-02-06&sr=b&scid=f19c185a-6af1-5faa-b872-7bebdfd05a52&skoid=127c13cb-e695-43ea-b6b2-0a863d41dbf7&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-12T12%3A27%3A30Z&ske=2026-09-13T12%3A27%3A30Z&sks=b&skv=2026-02-06&sig=jtnB0ABUyLumE1tcw5e3qQWkpVWsum3%2BxwBY0z76/AY%3D'
         run: |
           curl -fL "$ARTIFACT_URL" -o /tmp/finances.zip
           rm -rf /tmp/finances && mkdir -p /tmp/finances
@@ -25,10 +25,10 @@ jobs:
           cp /tmp/finances/FinancesApp-debug.apk financesapp-updates/FinancesApp.apk
           cat > financesapp-updates/update.json <<'EOF'
           {
-            "versionCode": 75,
-            "versionName": "1.2.75",
+            "versionCode": 77,
+            "versionName": "1.2.77",
             "apkUrl": "https://raw.githubusercontent.com/ReinaldoAG/ReinaldoAG/main/financesapp-updates/FinancesApp.apk",
-            "notes": "Horas y minutos legibles y progreso con efectivo más ganancias por cobrar"
+            "notes": "Separa gastos ya pagados de obligaciones futuras y evita cobrarlos dos veces"
           }
           EOF
       - name: Commit public updater payload
@@ -36,5 +36,5 @@ jobs:
           git config user.name "FinancesApp Updater"
           git config user.email "actions@github.com"
           git add financesapp-updates/FinancesApp.apk financesapp-updates/update.json
-          git commit -m "Publish FinancesApp v1.2.75" || exit 0
+          git commit -m "Publish FinancesApp v1.2.77" || exit 0
           git push
