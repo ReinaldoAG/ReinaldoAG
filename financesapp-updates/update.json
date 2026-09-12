@@ -1,6 +1,6 @@
 {
-  "versionCode": 69,
-  "versionName": "1.2.69",
+  "versionCode": 70,
+  "versionName": "1.2.70",
   "apkUrl": "https://raw.githubusercontent.com/ReinaldoAG/ReinaldoAG/main/financesapp-updates/FinancesApp.apk",
-  "notes": "Calendario de ingresos por día y métrica de plata generada"
+  "notes": "Corrige la carga del calendario de ingresos y de los temas"
 }
