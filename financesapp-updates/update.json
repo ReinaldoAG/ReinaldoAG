@@ -1,6 +1,6 @@
 {
-  "versionCode": 82,
-  "versionName": "1.2.82",
+  "versionCode": 85,
+  "versionName": "1.2.85",
   "apkUrl": "https://raw.githubusercontent.com/ReinaldoAG/ReinaldoAG/main/financesapp-updates/FinancesApp.apk",
-  "notes": "Permite registrar el cobro de una app específica sin marcar como cobradas las demás"
+  "notes": "Corrige cobros inflados: permite ingresar el monto exacto recibido y deshacer el último cobro"
 }
