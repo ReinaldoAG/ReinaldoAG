@@ -1,6 +1,6 @@
 {
-  "versionCode": 80,
-  "versionName": "1.2.80",
+  "versionCode": 82,
+  "versionName": "1.2.82",
   "apkUrl": "https://raw.githubusercontent.com/ReinaldoAG/ReinaldoAG/main/financesapp-updates/FinancesApp.apk",
-  "notes": "Muestra siempre la versión instalada y evita restaurar una interfaz vieja del WebView"
+  "notes": "Permite registrar el cobro de una app específica sin marcar como cobradas las demás"
 }
