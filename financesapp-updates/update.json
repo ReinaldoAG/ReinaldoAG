@@ -1,6 +1,6 @@
 {
-  "versionCode": 88,
-  "versionName": "1.2.88",
+  "versionCode": 90,
+  "versionName": "1.2.90",
   "apkUrl": "https://raw.githubusercontent.com/ReinaldoAG/ReinaldoAG/main/financesapp-updates/FinancesApp.apk",
-  "notes": "Añade una proyección compacta de ganancias hasta el cierre del ciclo usando el promedio diario de dinero y horas, respetando los días libres configurados"
+  "notes": "Corrige la proyección de ganancias para que aparezca en la interfaz actual de Ganancias y respete los días libres configurados"
 }
