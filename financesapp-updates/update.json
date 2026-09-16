@@ -1,6 +1,6 @@
 {
-  "versionCode": 90,
-  "versionName": "1.2.90",
+  "versionCode": 92,
+  "versionName": "1.2.92",
   "apkUrl": "https://raw.githubusercontent.com/ReinaldoAG/ReinaldoAG/main/financesapp-updates/FinancesApp.apk",
-  "notes": "Corrige la proyección de ganancias para que aparezca en la interfaz actual de Ganancias y respete los días libres configurados"
+  "notes": "Cuando registras una ganancia en un día, ese día se considera terminado y deja de contarse entre los días restantes para calcular la meta diaria"
 }
