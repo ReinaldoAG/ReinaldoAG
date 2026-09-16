@@ -14,9 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Download FinancesApp build 88
+      - name: Download FinancesApp build 90
         env:
-          ARTIFACT_URL: 'https://sdmntprbrazilsouth.oaiusercontent.com/files/00000000-5968-820e-a6cd-7acc4622cc5e/raw?se=2026-09-16T03%3A35%3A34Z&sp=r&sv=2026-02-06&sr=b&scid=5659a6bf-3c40-5e57-b3ce-0db98997ba80&skoid=127c13cb-e695-43ea-b6b2-0a863d41dbf7&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-15T09%3A49%3A44Z&ske=2026-09-16T09%3A49%3A44Z&sks=b&skv=2026-02-06&sig=Cr9KEAQ75ICbdRWPIFHpJo%2BYKOMFvLvt7hqI1vXVs84%3D'
+          ARTIFACT_URL: 'https://sdmntprbrazilsouth.oaiusercontent.com/files/00000000-8b78-820e-a789-40a05d27fa41/raw?se=2026-09-16T05%3A44%3A24Z&sp=r&sv=2026-02-06&sr=b&scid=67cdb0a3-3f7f-5d6b-9ab5-e347cc391317&skoid=127c13cb-e695-43ea-b6b2-0a863d41dbf7&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-15T09%3A49%3A44Z&ske=2026-09-16T09%3A49%3A44Z&sks=b&skv=2026-02-06&sig=913NfLqJkdg8LhzEBqmrDKlNUK%2BVEOi3f6vCsMlnNTk%3D'
         run: |
           curl -fL "$ARTIFACT_URL" -o /tmp/finances.zip
           rm -rf /tmp/finances && mkdir -p /tmp/finances
@@ -25,10 +25,10 @@ jobs:
           cp /tmp/finances/FinancesApp-debug.apk financesapp-updates/FinancesApp.apk
           cat > financesapp-updates/update.json <<'EOF'
           {
-            "versionCode": 88,
-            "versionName": "1.2.88",
+            "versionCode": 90,
+            "versionName": "1.2.90",
             "apkUrl": "https://raw.githubusercontent.com/ReinaldoAG/ReinaldoAG/main/financesapp-updates/FinancesApp.apk",
-            "notes": "Añade una proyección compacta de ganancias hasta el cierre del ciclo usando el promedio diario de dinero y horas, respetando los días libres configurados"
+            "notes": "Corrige la proyección de ganancias para que aparezca en la interfaz actual de Ganancias y respete los días libres configurados"
           }
           EOF
       - name: Commit public updater payload
@@ -36,5 +36,5 @@ jobs:
           git config user.name "FinancesApp Updater"
           git config user.email "actions@github.com"
           git add financesapp-updates/FinancesApp.apk financesapp-updates/update.json
-          git commit -m "Publish FinancesApp v1.2.88" || exit 0
+          git commit -m "Publish FinancesApp v1.2.90" || exit 0
           git push
