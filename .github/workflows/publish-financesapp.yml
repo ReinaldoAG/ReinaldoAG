@@ -14,9 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Download FinancesApp build 92
+      - name: Download FinancesApp build 94
         env:
-          ARTIFACT_URL: 'https://sdmntprbrazilsouth.oaiusercontent.com/files/00000000-b2c0-820e-acbe-1380378cca78/raw?se=2026-09-16T23%3A27%3A00Z&sp=r&sv=2026-02-06&sr=b&scid=e4a78497-1580-521d-839b-21ed700bcd07&skoid=127c13cb-e695-43ea-b6b2-0a863d41dbf7&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-16T20%3A09%3A39Z&ske=2026-09-17T20%3A09%3A39Z&sks=b&skv=2026-02-06&sig=J/Jh/J4uqX1FW0KM4/Gac%2BrTA27ZfQa32mndBTgJUac%3D'
+          ARTIFACT_URL: 'https://sdmntprbrazilsouth.oaiusercontent.com/files/00000000-4cdc-820e-bf26-db0a375b6914/raw?se=2026-09-19T17%3A37%3A38Z&sp=r&sv=2026-02-06&sr=b&scid=04f69151-3f20-59a1-a7be-5051053455d4&skoid=127c13cb-e695-43ea-b6b2-0a863d41dbf7&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-19T11%3A41%3A41Z&ske=2026-09-20T11%3A41%3A41Z&sks=b&skv=2026-02-06&sig=RWRmzZE6u7dgWI/98XS0QSsz/K4s3%2BbThqAAKixqLtc%3D'
         run: |
           curl -fL "$ARTIFACT_URL" -o /tmp/finances.zip
           rm -rf /tmp/finances && mkdir -p /tmp/finances
@@ -25,10 +25,10 @@ jobs:
           cp /tmp/finances/FinancesApp-debug.apk financesapp-updates/FinancesApp.apk
           cat > financesapp-updates/update.json <<'EOF'
           {
-            "versionCode": 92,
-            "versionName": "1.2.92",
+            "versionCode": 94,
+            "versionName": "1.2.94",
             "apkUrl": "https://raw.githubusercontent.com/ReinaldoAG/ReinaldoAG/main/financesapp-updates/FinancesApp.apk",
-            "notes": "Cuando registras una ganancia en un día, ese día se considera terminado y deja de contarse entre los días restantes para calcular la meta diaria"
+            "notes": "El APK distribuido ya no incluye datos personales precargados. Tus datos existentes permanecen guardados localmente en tu teléfono."
           }
           EOF
       - name: Commit public updater payload
@@ -36,5 +36,5 @@ jobs:
           git config user.name "FinancesApp Updater"
           git config user.email "actions@github.com"
           git add financesapp-updates/FinancesApp.apk financesapp-updates/update.json
-          git commit -m "Publish FinancesApp v1.2.92" || exit 0
+          git commit -m "Publish FinancesApp v1.2.94" || exit 0
           git push
