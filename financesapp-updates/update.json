@@ -1,6 +1,6 @@
 {
-  "versionCode": 94,
-  "versionName": "1.2.94",
+  "versionCode": 96,
+  "versionName": "1.2.96",
   "apkUrl": "https://raw.githubusercontent.com/ReinaldoAG/ReinaldoAG/main/financesapp-updates/FinancesApp.apk",
-  "notes": "El APK distribuido ya no incluye datos personales precargados. Tus datos existentes permanecen guardados localmente en tu teléfono."
+  "notes": "Elimina el botón + Ingreso de la sección Ganancias."
 }
