@@ -14,9 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Download FinancesApp build 94
+      - name: Download FinancesApp build 96
         env:
-          ARTIFACT_URL: 'https://sdmntprbrazilsouth.oaiusercontent.com/files/00000000-4cdc-820e-bf26-db0a375b6914/raw?se=2026-09-19T17%3A37%3A38Z&sp=r&sv=2026-02-06&sr=b&scid=04f69151-3f20-59a1-a7be-5051053455d4&skoid=127c13cb-e695-43ea-b6b2-0a863d41dbf7&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-19T11%3A41%3A41Z&ske=2026-09-20T11%3A41%3A41Z&sks=b&skv=2026-02-06&sig=RWRmzZE6u7dgWI/98XS0QSsz/K4s3%2BbThqAAKixqLtc%3D'
+          ARTIFACT_URL: 'https://sdmntprbrazilsouth.oaiusercontent.com/files/00000000-9994-820e-8728-6cd6acc4181b/raw?se=2026-09-19T18%3A33%3A50Z&sp=r&sv=2026-02-06&sr=b&scid=3965b42f-8dda-5fd5-90cb-e96ab568b36b&skoid=127c13cb-e695-43ea-b6b2-0a863d41dbf7&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-19T12%3A38%3A37Z&ske=2026-09-20T12%3A38%3A37Z&sks=b&skv=2026-02-06&sig=zSSLI9wPKgR/dUzp7AhV3v4G3ssgMSWLkRX8TECIH/0%3D'
         run: |
           curl -fL "$ARTIFACT_URL" -o /tmp/finances.zip
           rm -rf /tmp/finances && mkdir -p /tmp/finances
@@ -25,10 +25,10 @@ jobs:
           cp /tmp/finances/FinancesApp-debug.apk financesapp-updates/FinancesApp.apk
           cat > financesapp-updates/update.json <<'EOF'
           {
-            "versionCode": 94,
-            "versionName": "1.2.94",
+            "versionCode": 96,
+            "versionName": "1.2.96",
             "apkUrl": "https://raw.githubusercontent.com/ReinaldoAG/ReinaldoAG/main/financesapp-updates/FinancesApp.apk",
-            "notes": "El APK distribuido ya no incluye datos personales precargados. Tus datos existentes permanecen guardados localmente en tu teléfono."
+            "notes": "Elimina el botón + Ingreso de la sección Ganancias."
           }
           EOF
       - name: Commit public updater payload
@@ -36,5 +36,5 @@ jobs:
           git config user.name "FinancesApp Updater"
           git config user.email "actions@github.com"
           git add financesapp-updates/FinancesApp.apk financesapp-updates/update.json
-          git commit -m "Publish FinancesApp v1.2.94" || exit 0
+          git commit -m "Publish FinancesApp v1.2.96" || exit 0
           git push
