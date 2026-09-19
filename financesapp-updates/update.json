@@ -1,6 +1,6 @@
 {
-  "versionCode": 92,
-  "versionName": "1.2.92",
+  "versionCode": 94,
+  "versionName": "1.2.94",
   "apkUrl": "https://raw.githubusercontent.com/ReinaldoAG/ReinaldoAG/main/financesapp-updates/FinancesApp.apk",
-  "notes": "Cuando registras una ganancia en un día, ese día se considera terminado y deja de contarse entre los días restantes para calcular la meta diaria"
+  "notes": "El APK distribuido ya no incluye datos personales precargados. Tus datos existentes permanecen guardados localmente en tu teléfono."
 }
